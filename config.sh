@@ -14,7 +14,7 @@ case "${GITHUB_REF}" in
   "refs/heads/main") ACM_RELEASE="latest" ;;
   "refs/heads/stable") ACM_RELEASE="stable" ;;
 esac
-export PRODUCT_DEPLOY_PATH=/opt/acm/store/${ACM_RELEASE}/${ACM_PRODUCT}
+export PRODUCT_DEPLOY_PATH=/opt/acm/repo/${ACM_RELEASE}/${ACM_PRODUCT}
 
 echo "Build date=$(date)"
 echo "GITHUB_REF=${GITHUB_REF}"
@@ -22,6 +22,6 @@ echo "PRODUCT_DEPLOY_PATH=${PRODUCT_DEPLOY_PATH}"
 
 echo "JAVA_DISTRO=temurin" >> $GITHUB_ENV
 echo "JAVA_PACKAGE=jdk" >> $GITHUB_ENV
-echo "JAVADOC_DEPLOY_PATH=/opt/acm/store/latest/${ACM_PRODUCT}" >> $GITHUB_ENV
-echo "JAVADOC_TARGET_PATH=/opt/acm/web/product/${ACM_PRODUCT}/javadoc" >> $GITHUB_ENV
+echo "JAVADOC_DEPLOY_PATH=${PRODUCT_DEPLOY_PATH}" >> $GITHUB_ENV
+echo "JAVADOC_TARGET_PATH=${JAVADOC_DEPLOY_PATH}/javadoc" >> $GITHUB_ENV
 echo "PRODUCT_DEPLOY_PATH=${PRODUCT_DEPLOY_PATH}" >> $GITHUB_ENV
