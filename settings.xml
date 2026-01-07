@@ -21,6 +21,11 @@
 			<password>${env.ACM_MAVEN_REPO_PASSWORD}</password>
 		</server>
 		<server>
+			<id>acm-plugin</id>
+			<username>${env.ACM_MAVEN_REPO_USERNAME}</username>
+			<password>${env.ACM_MAVEN_REPO_PASSWORD}</password>
+		</server>
+		<server>
 			<id>central-mirror</id>
 			<username>${env.ACM_MAVEN_REPO_USERNAME}</username>
 			<password>${env.ACM_MAVEN_REPO_PASSWORD}</password>
